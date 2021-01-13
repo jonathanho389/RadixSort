@@ -1,6 +1,7 @@
+import java.util.*;
 public class RadixTester{
   public static void main(String[] args) {
-    System.out.println(Radix.nth(123, 1));
+    System.out.println(Radix.nth(123, 0));
     System.out.println(Radix.nth(-123,1));
     System.out.println(Radix.nth(123, 2));
     System.out.println(Radix.nth(123, 2));
@@ -12,36 +13,30 @@ public class RadixTester{
     SortableLinkedList[] buckets = new SortableLinkedList[10];
     SortableLinkedList original = new SortableLinkedList();
     SortableLinkedList one = new SortableLinkedList();
-    one.add(1); one.add(2);
+    int[] testing = {15, 36, 235, 2305, 6, 39, 92, 124, 250, 340};
+    one.add(15); original.add(15);
     SortableLinkedList two = new SortableLinkedList();
-    two.add(1); two.add(2);
+    two.add(36); original.add(36);
     SortableLinkedList three = new SortableLinkedList();
-    three.add(1); three.add(2);
+    three.add(235);original.add(235);
     SortableLinkedList four = new SortableLinkedList();
-    four.add(1); four.add(2);
+    four.add(2305);original.add(2305);
     SortableLinkedList five = new SortableLinkedList();
-    five.add(1); five.add(2);
+    five.add(6);original.add(6);
     SortableLinkedList six = new SortableLinkedList();
-    six.add(1); six.add(2);
+    six.add(39);original.add(39);
     SortableLinkedList seven = new SortableLinkedList();
-    seven.add(1); seven.add(2);
+    seven.add(92);original.add(92);
     SortableLinkedList eight = new SortableLinkedList();
-    eight.add(1); eight.add(2);
+    eight.add(124);original.add(124);
     SortableLinkedList nine = new SortableLinkedList();
-    nine.add(1); nine.add(2);
+    nine.add(250);original.add(250);
     SortableLinkedList ten = new SortableLinkedList();
-    ten.add(1); ten.add(2);
-    buckets[0] = (one);
-    buckets[1] = (two);
-    buckets[2] = (three);
-    buckets[3] = (four);
-    buckets[4] = (five);
-    buckets[5] = (six);
-    buckets[6] = (seven);
-    buckets[7] = (eight);
-    buckets[8] = (nine);
-    buckets[9] = (ten);
-    Radix.merge(original, buckets);
+    ten.add(340);original.add(340);
     System.out.println(original.toString());
+    Radix.radixSortSimple(original);
+    System.out.println(original.toString());
+    Arrays.sort(testing);
+    System.out.println(Arrays.toString(testing));
   }
 }

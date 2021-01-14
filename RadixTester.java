@@ -13,16 +13,16 @@ public class RadixTester{
     SortableLinkedList[] buckets = new SortableLinkedList[10];
     SortableLinkedList original = new SortableLinkedList();
     SortableLinkedList one = new SortableLinkedList();
-    int[] testing = {15, 36, 235, 2305, 6, 39, 92, 124, 250, 340};
-    one.add(15); original.add(15);
+    int[] testing = {-15, -36, 235, 2305, -6, 39, 92, 124, 250, 340};
+    one.add(15); original.add(-15);
     SortableLinkedList two = new SortableLinkedList();
-    two.add(36); original.add(36);
+    two.add(36); original.add(-36);
     SortableLinkedList three = new SortableLinkedList();
     three.add(235);original.add(235);
     SortableLinkedList four = new SortableLinkedList();
     four.add(2305);original.add(2305);
     SortableLinkedList five = new SortableLinkedList();
-    five.add(6);original.add(6);
+    five.add(6);original.add(-6);
     SortableLinkedList six = new SortableLinkedList();
     six.add(39);original.add(39);
     SortableLinkedList seven = new SortableLinkedList();
@@ -33,10 +33,10 @@ public class RadixTester{
     nine.add(250);original.add(250);
     SortableLinkedList ten = new SortableLinkedList();
     ten.add(340);original.add(340);
-    System.out.println(original.toString());
-    Radix.radixSortSimple(original);
-    System.out.println(original.toString());
+    System.out.println("Original" + original.toString());
     Arrays.sort(testing);
-    System.out.println(Arrays.toString(testing));
+    System.out.println("Sorted" + Arrays.toString(testing));
+    Radix.radixSort(original);
+    System.out.println("Radix" + original.toString());
   }
 }

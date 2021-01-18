@@ -23,17 +23,27 @@ public class Radix{
       original.extend(buckets[i]);
     }
   }
-//use while loop
+
   public static void radixSortSimple(SortableLinkedList data){
     int loops = 0;
-    SortableLinkedList temp = data;
-    for(int i = 0;i < temp.size();i++){
+    SortableLinkedList temp = new SortableLinkedList();
+    SortableLinkedList temp2 = new SortableLinkedList();
+    while(data.size() != 0){
+      temp.add(data.get(0));
+      temp2.add(data.get(0));
+      data.remove(0);
+    }
+    while(temp.size() != 0){
       loops = Math.max(length(temp.get(0)), loops);
       temp.remove(0);
     }
     SortableLinkedList[] buckets = new SortableLinkedList[10];
     for(int i = 0;i < 10;i++){
       buckets[i] = new SortableLinkedList();
+    }
+    while(temp2.size() != 0){
+      data.add(temp2.get(0));
+      temp2.remove(0);
     }
     for(int i = 0;i < loops;i++){
       while(data.size() != 0){
@@ -47,14 +57,26 @@ public class Radix{
 
   public static void radixSort(SortableLinkedList data){
     int loops = 0;
-    for(int i = 0;i < data.size();i++){
-      loops = Math.max(length(data.get(i)), loops);
+    SortableLinkedList temp = new SortableLinkedList();
+    SortableLinkedList temp2 = new SortableLinkedList();
+    while(data.size() != 0){
+      temp.add(data.get(0));
+      temp2.add(data.get(0));
+      data.remove(0);
+    }
+    while(temp.size() != 0){
+      loops = Math.max(length(temp.get(0)), loops);
+      temp.remove(0);
     }
     SortableLinkedList[] buckets = new SortableLinkedList[10];
     SortableLinkedList[] negbuckets = new SortableLinkedList[10];
     for(int i = 0;i < 10;i++){
       buckets[i] = new SortableLinkedList();
       negbuckets[i] = new SortableLinkedList();
+    }
+    while(temp2.size() != 0){
+      data.add(temp2.get(0));
+      temp2.remove(0);
     }
     for(int i = 0;i < loops;i++){
       while(data.size() != 0){
